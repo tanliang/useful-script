@@ -24,8 +24,8 @@ for %%d in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
 )
 :end_loop
 
-:: 任务计划设置用户登录后启动
-:: Add it to Task Scheduler, exec when user login.
+:: 任务计划设置用户登录后启动，记得操作项设置[起始于(可选)]目录为%temp%
+:: Add it to Task Scheduler, exec when user login. In action item, do remember to set [Start in(optional)] as %temp%
 :: 自动映射当前用户Desktop至第一个匹配到磁盘的Desktop目录
 :: It will mklink user's Desktop to the first matched disk Desktop dir.
 
