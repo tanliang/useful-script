@@ -7,17 +7,17 @@ for %%d in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
 	if not %%d == %sysdsk% (
 		if exist "%%d:\%target%" (
 			echo find: %%d:\%target%
-			dir /a "%USERPROFILE%" 2>nul | findstr /i /c:"%target% [%%d:\%target%]" >nul
-			if %errorlevel% equ 0 (
-				echo find link
-				goto end_loop
-			) else (
+			dir /a "%USERPROFILE%" 2>nul | findstr /i /c:"%target% [%%d:\%target%]" >res.findstr
+			for %%I in (res.findstr) do @if %%~zI EQU 0 (
 				if exist %lnkdir% (
-					ren %lnkdir% %target%.bak
+					echo ren %lnkdir% %target%.bak
 					echo rename
 				)
-				mklink /j %lnkdir% %%d:\%target%
+				echo mklink /j %lnkdir% %%d:\%target%
 				echo mklink
+			) else (
+				echo find link
+				goto end_loop
 			)
 
 			goto end_loop
