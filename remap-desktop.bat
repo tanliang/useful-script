@@ -10,10 +10,10 @@ for %%d in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
 			dir /a "%USERPROFILE%" 2>nul | findstr /i /c:"%target% [%%d:\%target%]" >res.findstr
 			for %%I in (res.findstr) do @if %%~zI EQU 0 (
 				if exist %lnkdir% (
-					echo ren %lnkdir% %target%.bak
+					ren %lnkdir% %target%.bak
 					echo rename
 				)
-				echo mklink /j %lnkdir% %%d:\%target%
+				mklink /j %lnkdir% %%d:\%target%
 				echo mklink
 			) else (
 				echo find link
@@ -27,7 +27,7 @@ for %%d in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
 :end_loop
 
 :: 任务计划设置用户登录后启动
-:: Add task on Task Scheduler, exec at user login.
+:: Add it to Task Scheduler, exec when user login.
 :: 自动映射当前用户Desktop至第一个匹配到磁盘的Desktop目录
 :: It will mklink user's Desktop to the first matched disk Desktop dir.
 
