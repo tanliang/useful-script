@@ -34,3 +34,6 @@ for %%d in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
 
 :: 需要先在目标磁盘手动建立 Desktop 目录
 :: Need to mkdir Desktop on target disk first.
+
+:: 第一次运行完，需要刷新桌面查看效果
+:: For the first run, you need to refresh the Desktop.
