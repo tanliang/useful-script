@@ -9,6 +9,7 @@ Password:
 
 since void-linux has dynamic $DBUS_SESSION_BUS_ADDRESS
 you need to echo it in your shell init script
+
 my shell is fish
 ```shell
 yourusername@void ~> cat .config/fish/config.fish 
